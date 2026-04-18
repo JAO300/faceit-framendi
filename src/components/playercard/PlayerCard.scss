@@ -1,0 +1,20 @@
+@use "../../styles/variables";
+
+.player-card {
+  margin-top: 20px;
+  padding: 16px;
+  border: 1px solid variables.$border-color;
+  border-radius: 8px;
+  background: variables.$card-bg;
+  text-align: left;
+
+  h2 {
+    margin: 0 0 12px;
+    color: variables.$primary;
+    font-size: 1.4rem;
+  }
+
+  p {
+    margin: 6px 0;
+  }
+}

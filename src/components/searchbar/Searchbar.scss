@@ -1,0 +1,38 @@
+@use "../../styles/variables";
+
+.searchbar {
+  margin-bottom: 20px;
+
+  form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  input {
+    width: 220px;
+    padding: 10px 12px;
+    border: 1px solid variables.$border-color;
+    border-radius: 6px;
+    font: inherit;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: variables.$primary;
+  }
+
+  button {
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    background: variables.$primary;
+    color: white;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  button:hover {
+    opacity: 0.9;
+  }
+}

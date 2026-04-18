@@ -1,0 +1,33 @@
+@use "./variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Press Start 2P', monospace;
+  background: variables.$bg-color;
+  color: variables.$text-color;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 640px;
+  margin: 60px auto;
+  padding: 0 16px;
+  text-align: center;
+}
+
+h1 {
+  margin: 0 0 24px;
+  font-size: 2rem;
+}
+
+.error {
+  margin-top: 12px;
+  color: variables.$error-color;
+}
