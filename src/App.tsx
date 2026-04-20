@@ -1,6 +1,8 @@
 import { useState } from "react";
 import SearchBar from "./components/searchbar/Searchbar"
 import PlayerCard from "./components/playercard/PlayerCard"
+import { Routes, Route } from "react-router-dom";
+import PlayerStatsPage from "./pages/PlayerStatsPage";
 
 type Player = {
   nickname: string;
@@ -9,7 +11,7 @@ type Player = {
   level: number | null;
 };
 
-export default function App() {
+function HomePage() {
   const [player, setPlayer] = useState<Player | null>(null);
   const [error, setError] = useState("");
 
@@ -45,5 +47,14 @@ export default function App() {
 
       {player && <PlayerCard player={player} />}
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/player/:nickname" element={<PlayerStatsPage />} />
+    </Routes>
   );
 }
