@@ -7,8 +7,11 @@ type Match = {
   gameMode: string | null;
   result: string | null;
   kd: number | null;
+  kda: string | null;
+  adr: number | null;
   kills: number | null;
   deaths: number | null;
+  assists: number | null;
   map: unknown;
   score: unknown;
 };
@@ -26,6 +29,7 @@ type Props = {
     matchesPlayed: number;
     winRate: number;
     avgKd: number | null;
+    avgKda: string | null;
     matches: Match[];
   };
 };
@@ -119,7 +123,7 @@ export default function PlayerStatsPage() {
             <div>
               <p>Win rate: {data.recent.winRate}%</p>
               <p>KD: {data.recent.avgKd ?? 'N/A'}</p>
-              <p> todo KDA stat</p>
+              <p>K/D/A: {data.recent.avgKda ?? 'N/A'}</p>
             </div>
 
             <div>
@@ -136,16 +140,31 @@ export default function PlayerStatsPage() {
       {data.recent.matches.length === 0 ? (
         <p>No recent matches found.</p>
       ) : (
-        <ul>
-          {data.recent.matches.map((match) => (
-            <li key={match.matchId}>
-              <p>Result: {match.result ?? 'N/A'}</p>
-              <p>Map: {String(match.map ?? 'N/A')}</p>
-              <p>Score: {String(match.score ?? 'N/A')}</p>
-              <p>KD: {match.kd ?? 'N/A'}</p>
-              <p>Kills: {match.kills ?? 'N/A'}</p>
-              <p>Deaths: {match.deaths ?? 'N/A'}</p>
-              <hr />
+        <ul className="match-list">
+          {data.recent.matches.map((match, index) => (
+            <li
+              className={`match-card ${
+                match.result?.toUpperCase() === 'WIN'
+                  ? 'match-card-win'
+                  : 'match-card-loss'
+              }`}
+              key={match.matchId ?? index}
+            >
+              <div className="match-card-top">
+                <p>Map: {String(match.map ?? 'N/A')}</p>
+                <p>Result: {match.result ?? 'N/A'}</p>
+                <p>Score: {String(match.score ?? 'N/A')}</p>
+              </div>
+
+              <details className="match-card-dropdown">
+                <summary className="match-card-stats">Show stats</summary>
+
+                <div className="match-card-item">
+                  <p>K/D/A: {match.kda ?? 'N/A'}</p>
+                  <p>KD: {match.kd ?? 'N/A'}</p>
+                  <p>ADR: {match.adr ?? 'N/A'}</p>
+                </div>
+              </details>
             </li>
           ))}
         </ul>

@@ -40,4 +40,57 @@
   }
 }
 
-// background: linear-gradient(to right, #144371, #e2e8f0);
+.match-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.match-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  background: white;
+  margin-bottom: 16px;
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin: 0;
+      color: variables.$card-p;
+    }
+  }
+
+  &-dropdown {
+    margin-top: 12px;
+  }
+
+  &-stats {
+    cursor: pointer;
+    font-weight: 600;
+    list-style: none;
+  }
+
+  &-item {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid variables.$border-color;
+
+    p {
+      margin: 6px;
+    }
+  }
+
+  &-win {
+    background: linear-gradient(to right, #1e5f3a, #3bb473);
+    border: 1px solid #22c55e;
+  }
+
+  &-loss {
+    background: linear-gradient(to right, #5f1e1e, #be4a4a);
+    border: 1px solid #ef4444;
+  }
+}
