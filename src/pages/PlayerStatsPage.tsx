@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+import './PlayerStatsPage.scss';
 
 type Match = {
   matchId: string | null;
@@ -94,20 +95,41 @@ export default function PlayerStatsPage() {
   }
 
   return (
-    <div>
+    <div className="player-stat-page">
       <Link to="/">Back</Link>
+      <div className="stat-card">
+        <h1>{data.player.nickname}</h1>
 
-      <h1>{data.player.nickname}</h1>
+        <div className="stat-card-body">
+          {data.player.avatar && (
+            <img
+              src={data.player.avatar}
+              alt={data.player.nickname}
+              width="120"
+            />
+          )}
 
-      {data.player.avatar && (
-        <img src={data.player.avatar} alt={data.player.nickname} width="120" />
-      )}
+          <div className="stat-card-details">
+            <div>
+              <p>Nationality: {data.player.country}</p>
+              <p>ELO: {data.player.elo ?? 'N/A'}</p>
+              <p>Level: {data.player.level ?? 'N/A'}</p>
+            </div>
 
-      <p>Nationality: {data.player.country}</p>
-      <p>ELO: {data.player.elo ?? 'N/A'}</p>
-      <p>Level: {data.player.level ?? 'N/A'}</p>
-      <p>Win rate of last 10 matches: {data.recent.winRate}%</p>
-      <p>KD of last 10 games: {data.recent.avgKd ?? 'N/A'}</p>
+            <div>
+              <p>Win rate: {data.recent.winRate}%</p>
+              <p>KD: {data.recent.avgKd ?? 'N/A'}</p>
+              <p> todo KDA stat</p>
+            </div>
+
+            <div>
+              <p>steam link</p>
+              <p>faceit link</p>
+              <p>eitthvað</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h2>Last 10 games</h2>
 

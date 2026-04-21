@@ -1,0 +1,43 @@
+@use "../styles/variables.scss";
+
+.player-stat-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 24px 16px;
+}
+
+.stat-card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 24px 0;
+  background: variables.$card-bg;
+
+  h1 {
+    margin-top: 0;
+    margin-bottom: 16px;
+    color: variables.$card-nick;
+  }
+
+  img {
+    border-radius: 8px;
+  }
+
+  &-body {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  &-details {
+    display: flex;
+    gap: 64px;
+
+    p {
+      margin: 6px 0;
+      color: variables.$card-p;
+    }
+  }
+}
+
+// background: linear-gradient(to right, #144371, #e2e8f0);

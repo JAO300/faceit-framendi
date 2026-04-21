@@ -10,12 +10,13 @@
 
   h2 {
     margin: 0 0 12px;
-    color: variables.$primary;
+    color: variables.$card-nick;
     font-size: 1.4rem;
   }
 
   p {
     margin: 6px 0;
+    color: variables.$card-p;
   }
 }
 
