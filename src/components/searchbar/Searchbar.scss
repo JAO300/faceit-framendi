@@ -21,18 +21,4 @@
     outline: none;
     border-color: variables.$primary;
   }
-
-  button {
-    padding: 10px 14px;
-    border: none;
-    border-radius: 6px;
-    background: variables.$primary;
-    color: white;
-    font: inherit;
-    cursor: pointer;
-  }
-
-  button:hover {
-    opacity: 0.9;
-  }
 }

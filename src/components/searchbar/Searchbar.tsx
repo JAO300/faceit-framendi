@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./Searchbar.scss";
+import Button from "../button/Button";
 
 type Props = {
   onSearch: (nickname: string) => void;
@@ -25,7 +26,7 @@ export default function SearchBar({ onSearch }: Props) {
           value={nickname}
           onChange={(e) => setNickname(e.target.value)}
         />
-        <button type="submit">Search</button>
+        <Button type="submit">Search</Button>
       </form>
     </div>
   );

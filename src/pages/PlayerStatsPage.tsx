@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './PlayerStatsPage.scss';
-
+import Button from '../components/button/Button';
 type Match = {
   matchId: string | null;
   gameMode: string | null;
@@ -78,13 +78,13 @@ export default function PlayerStatsPage() {
   }, [nickname]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <p className="state loading">Loading...</p>;
   }
 
   if (error) {
     return (
-      <div>
-        <Link to="/">Back</Link>
+      <div className="state error">
+        <Button to="/">Back</Button>
         <p>{error}</p>
       </div>
     );
@@ -92,8 +92,8 @@ export default function PlayerStatsPage() {
 
   if (!data) {
     return (
-      <div>
-        <Link to="/">Back</Link>
+      <div className="state empty">
+        <Button to="/">Back</Button>
         <p>No player data found.</p>
       </div>
     );
@@ -101,7 +101,8 @@ export default function PlayerStatsPage() {
 
   return (
     <div className="player-stat-page">
-      <Link to="/">Back</Link>
+      <Button to="/">Back</Button>
+
       <div className="stat-card">
         <h1>{data.player.nickname}</h1>
 

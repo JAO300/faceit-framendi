@@ -8,6 +8,10 @@
   background: variables.$card-bg;
   text-align: left;
 
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+
   h2 {
     margin: 0 0 12px;
     color: variables.$card-nick;
@@ -17,6 +21,11 @@
   p {
     margin: 6px 0;
     color: variables.$card-p;
+  }
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
 }
 
