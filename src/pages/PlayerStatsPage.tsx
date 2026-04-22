@@ -24,6 +24,7 @@ type Props = {
     country: string;
     elo: number | null;
     level: number | null;
+    steamId: string | null;
   };
   recent: {
     matchesPlayed: number;
@@ -126,11 +127,38 @@ export default function PlayerStatsPage() {
               <p>K/D/A: {data.recent.avgKda ?? 'N/A'}</p>
             </div>
 
-            <div>
-              <p>steam link</p>
-              <p>faceit link</p>
-              <p>eitthvað</p>
+            <div className="linkar">
+              <p>
+                <a
+                  href={`https://steamcommunity.com/profiles/${data.player.steamId}`}
+                  target="_blank"
+                >
+                  Steam
+                </a>
+              </p>
+
+              <p>
+                <a
+                  href={`http://faceit.com/players/${data.player.nickname}`}
+                  target="_blank"
+                >
+                  FACEIT
+                </a>
+              </p>
+
+              <p>
+                <a
+                  href={`https://cs.ninja/player/${data.player.steamId}`}
+                  target="_blank"
+                >
+                  Trust Factor
+                </a>
+              </p>
             </div>
+
+            <p className="stat-card-footer">
+              All stats are calculated from players last 10 games
+            </p>
           </div>
         </div>
       </div>

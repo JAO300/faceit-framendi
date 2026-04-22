@@ -30,13 +30,26 @@
   }
 
   &-details {
+    position: relative;
     display: flex;
     gap: 64px;
+    flex: 1;
+    
 
     p {
       margin: 6px 0;
       color: variables.$card-p;
     }
+  }
+
+  &-footer {
+    position: absolute;
+    right: 0;
+    bottom: -56px;
+    margin: 0;
+    font-size: 12px;
+    text-align: right;
+    opacity: 0.6;
   }
 }
 
@@ -92,5 +105,19 @@
   &-loss {
     background: linear-gradient(to right, #5f1e1e, #be4a4a);
     border: 1px solid #ef4444;
+  }
+}
+
+.linkar {
+  a {
+    color: variables.$card-p;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+    display: inline-block;
+
+    &:hover {
+      transform: translateY(-3px);
+      color: #005d97;
+    }
   }
 }
