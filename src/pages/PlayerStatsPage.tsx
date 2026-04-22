@@ -40,6 +40,7 @@ export default function PlayerStatsPage() {
   const [data, setData] = useState<Props | null>(null);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
+  const API_URL = import.meta.env.VITE_API_URL || '';
 
   useEffect(() => {
     async function fetchPlayerDetails() {
@@ -54,7 +55,7 @@ export default function PlayerStatsPage() {
         setError('');
 
         const res = await fetch(
-          `/api/player-details?nickname=${encodeURIComponent(nickname)}`,
+          `${API_URL}/api/player-details?nickname=${encodeURIComponent(nickname)}`,
         );
 
         const json = await res.json();
