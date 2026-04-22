@@ -14,6 +14,7 @@ type Player = {
 function HomePage() {
   const [player, setPlayer] = useState<Player | null>(null);
   const [error, setError] = useState('');
+  const API_URL = import.meta.env.VITE_API_URL || '';
 
   async function handleSearch(nickname: string) {
     setError('');
@@ -21,7 +22,7 @@ function HomePage() {
 
     try {
       const res = await fetch(
-        `/api/player?nickname=${encodeURIComponent(nickname)}`,
+        `${API_URL}/api/player?nickname=${encodeURIComponent(nickname)}`,
       );
 
       const data = await res.json();
